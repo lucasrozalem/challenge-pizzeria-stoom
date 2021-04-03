@@ -3,7 +3,7 @@ import Navbar from "../containers/Layout/NavbarContainer";
 
 import SliderHeader from "../components/Home/SliderHeader/Desktop/Slider";
 import KnowMore from "../components/Home/KnowMore/Desktop/KnowMore";
-import Club from "../components/Home/Club/Club";
+import Promotion from "../components/Home/Promotion/Promotion";
 import Footer from "../components/Layout/Footer";
 import GlobalStyle from "../public/style/global.style";
 
@@ -13,7 +13,7 @@ const Index = (props) => {
       <GlobalStyle />
       <Head>
         <title>Pizza</title>
-        <script src="/assets/pixel.js"></script>
+      
         <link
           rel="shortcut icon"
           type="image/x-icon"
@@ -35,7 +35,7 @@ const Index = (props) => {
         <SliderHeader />
         {/* <SliderHeaderMobile /> */}
         {/* <Home /> */}
-        <Club />
+        <Promotion />
         <KnowMore />
    
       </main>

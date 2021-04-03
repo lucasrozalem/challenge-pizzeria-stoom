@@ -6,16 +6,16 @@ import React, { Component } from "react";
 
 
 import * as commonActions from "../../../actions/commonActions";
-import * as flavorActions from "../../../actions/flavorActions";
-import Flavor from "../../../components/Menu/Flavor/Flavor";
+import * as sizeActions from "../../../actions/sizeActions";
+import Size from "../../../components/Menu/Size/index";
 
-class FlavorContainer extends Component {
+class SizeContainer extends Component {
   
   componentDidMount() {
     const { router, actions } = this.props;
     const dough = localStorage.getItem('dough');
     const priceDough = localStorage.getItem('priceDough');
-    const name = localStorage.getItem('name');
+    const flavor = localStorage.getItem('flavor');
     const description = localStorage.getItem('description');
     const size = localStorage.getItem('size');
     const priceSize = localStorage.getItem('priceSize');
@@ -28,11 +28,11 @@ class FlavorContainer extends Component {
         dough: dough,
         priceDough: Number(priceDough),
         description: description ? description : "",
-        name: name ? name : "",
+        flavor: flavor ? flavor : "",
         size: size ? size : "",
         priceSize: priceSize ? Number(priceSize) : 0,
         total: total ? Number(total) : 0,
-        priceFlavor: priceFlavor ? Number(priceFlavor) : "",
+        priceFlavor: priceFlavor ? Number(priceFlavor) : 0,
         
       
       })
@@ -40,26 +40,38 @@ class FlavorContainer extends Component {
   }
 
   handleNextStep = (price) => {
-    const { router, actions, flavorState } = this.props;
+    const { router, actions, sizeState } = this.props;
 
-    if (flavorState.selectedFlavor) {
-      localStorage.setItem("size", flavorState.selectedSize);
-      localStorage.setItem("priceSize", flavorState.priceSize);
+    if (sizeState.selectedSize) {
+      localStorage.setItem("size", sizeState.selectedSize);
+      localStorage.setItem("priceSize", sizeState.priceSize);
       localStorage.setItem('total', price)
     }
   };
 
+  handleUncheckSize = (price) =>{
+
+    const {  actions } = this.props;
+
+    localStorage.removeItem("size");
+    localStorage.removeItem("priceSize");
+    localStorage.setItem('total', price)
+
+    actions.handleResetCheckboxSize();
+  }
+
   render() {
-    const { actions, flavorState } = this.props;
-    console.log("flavorState", flavorState);
+    const { actions, sizeState } = this.props;
+    console.log("sizeState", sizeState);
 
     return (
       <div>
         {
-          <Flavor
+          <Size
             actions={actions}
-            flavorState={flavorState}
+            sizeState={sizeState}
             handleNextStep={this.handleNextStep}
+            handleUncheckSize={this.handleUncheckSize}
           />
         }
       </div>
@@ -67,13 +79,13 @@ class FlavorContainer extends Component {
   }
 }
 
-const mapStateToProps = ({ flavorReducer }) => ({ flavorState: flavorReducer });
+const mapStateToProps = ({ sizeReducer }) => ({ sizeState: sizeReducer });
 
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({ ...commonActions, ...flavorActions }, dispatch),
+  actions: bindActionCreators({ ...commonActions, ...sizeActions }, dispatch),
 });
 
 export default compose(
   withRouter,
   connect(mapStateToProps, mapDispatchToProps)
-)(FlavorContainer);
+)(SizeContainer);

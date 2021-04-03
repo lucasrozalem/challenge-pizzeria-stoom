@@ -27,7 +27,6 @@ export const handleSelectChange = ({ name, priceSize }) => ({
 });
 
 export const handleSetInitialValue = ({
-  name,
   description,
   size,
   dough,
@@ -35,10 +34,10 @@ export const handleSetInitialValue = ({
   priceDough,
   total,
   priceFlavor,
+  flavor
 }) => ({
   type: HANDLE_SET_INITIAL_VALUE,
   payload: {
-    name,
     description,
     size,
     dough,
@@ -46,6 +45,7 @@ export const handleSetInitialValue = ({
     priceDough,
     total,
     priceFlavor,
+    flavor
   },
   meta: {},
   error: false,

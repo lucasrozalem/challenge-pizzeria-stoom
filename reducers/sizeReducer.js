@@ -64,6 +64,7 @@ const sizeReducer = (state = initialState, action) => {
         size: {$set: action.payload.size},
         dough: {$set: action.payload.dough},
         total: {$set: action.payload.total},
+        flavor: {$set: action.payload.flavor},
         bugHelper: { $set: !state.bugHelper }
       });
 

@@ -26,7 +26,7 @@ const Navbar = (props) => {
 
   
   return (    
-    <nav className="navbar navbar-expand-lg navbar-light navbar-stick-dark d-none d-md-block" style={{ top: 0 }}>
+    <nav className="navbar navbar-expand-lg navbar-light navbar-fixed-dark d-none d-md-block" style={{ top: 0 }}>
       <div className="container">
 
         <div className="navbar-left mr-4">

@@ -78,7 +78,7 @@ let tam=0
         <section className="navbar-mobile"  >
           {/* <span className="navbar-divider d-mobile-none"></span> */}
 
-          <nav className="nav nav-navbar" style={{ marginLeft: '-2%', width: '100%', position: 'absolute' }}>
+          <nav className="nav nav-navbar" style={{ marginLeft: '-2%', width: '100%', position: 'fixed' }}>
             <div style={{ textAlign: 'center', marginBottom: 20, }} className="d-block2 d-md-none2">
               <img src="/static/images/pizzalogo.png" alt="logo" width="100" />
               <button style={{ marginLeft: '10%', color: 'gray', border: '1px solid gray', backgroundColor: 'transparent', marginTop: '1%', fontWeight: 900 }} onClick={() => handleCloseNavbar()}> <i className="fa fa-close" aria-hidden="true"></i> FECHAR </button>

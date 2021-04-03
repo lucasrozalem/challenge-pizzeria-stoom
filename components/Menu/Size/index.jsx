@@ -4,34 +4,24 @@ import Cookies from "js-cookie";
 
 import { useState, ReactNode, useEffect } from "react";
 
-import pizzaria from "../../../pizzaria.json";
+import pizzeria from "../../../pizzeria.json";
 
-moment.locale("pt-br");
-
-const Menu = (props) => {
-  const { actions, doughState, handleSetDough, handleNextStep } = props;
-
-  let dayOfTheWeek = moment().isoWeekday();
-
-  let recommendation = {};
-
-  pizzaria.recommendations.map((element, index) => {
-    if (element.day === dayOfTheWeek) {
-      recommendation = { element };
-    }
-  });
+const Size = (props) => {
+  const { actions, sizeState, handleNextStep, handleUncheckSize } = props;
 
   let price =
-    Number(doughState.priceDough) +
-    Number(doughState.priceSize) +
-    Number(doughState.priceFlavor);
+    Number(sizeState.priceDough) +
+    Number(sizeState.priceSize) +
+    Number(sizeState.priceFlavor);
 
   useEffect(() => {
     handleNextStep(price);
-  }, [doughState.selectedDough]);
+  }, [sizeState.selectedSize]);
+
+  console.log("type", typeof sizeState.priceSize);
 
   return (
-    <section className="section" style={{ backgroundColor: "white" }}>
+    <section style={{ backgroundColor: "transparent", marginTop:'7.2rem' }}>
       <div className="container" syule={{ float: "left", width: "100%" }}>
         <div
           className="container"
@@ -44,10 +34,14 @@ const Menu = (props) => {
             lineHeight: "3",
           }}
         >
-          <Link href="/">
+          <Link href="/index">
             <a style={{ color: "#A43D51" }}> Home </a>
           </Link>{" "}
-          /<strong> Menu</strong>
+          /
+          <Link href="/massa">
+            <a style={{ color: "#A43D51" }}> Massa </a>
+          </Link>{" "}
+          /<strong> Tamanho</strong>
         </div>
       </div>
 
@@ -60,45 +54,7 @@ const Menu = (props) => {
             width: "100%",
             float: "left",
             border: "1px solid #D6D6D6",
-            backgroundImage: "url(../static/images/background_promotion.png)",
-          }}
-        >
-          <div className="container" style={{ width: "100%" }}>
-            <div style={{ float: "left", width: "10%" }}>
-              <img src="/static/images/promocao.png" alt="promotion" />
-            </div>
-            <div style={{ float: "left", marginLeft: "7.2rem" }}>
-              <h3 style={{ color: "white" }}>
-                Aproveite a nossa pizza de {recommendation.element.name}
-              </h3>
-              <p style={{ color: "white" }}>
-                {recommendation.element.description}
-              </p>
-              <p style={{ color: "white" }}>
-                Massa: {recommendation.element.dough}
-              </p>
-
-              <p style={{ color: "white" }}>
-                Tamanho: {recommendation.element.size}
-              </p>
-              <p style={{ color: "white" }}>
-                {" "}
-                Por Apenas: R${" "}
-                {recommendation.element.total
-                  .toFixed(2)
-                  .toString()
-                  .replace(".", ",")}
-              </p>
-            </div>
-          </div>
-        </div>
-        <div
-          className="card shadow-4"
-          style={{
-            width: "100%",
-            float: "left",
-            border: "1px solid #D6D6D6",
-            marginTop: "1.6rem",
+            marginTop: "-0.2rem",
           }}
         >
           <div className="card-body">
@@ -108,8 +64,14 @@ const Menu = (props) => {
                   Selecione o tamanho da sua pizza:
                 </h6>
                 <h5 style={{ fontWeight: "bold" }}>
-                  {/* Valor: R$ {doughState != NaN ? doughState.priceDough.toFixed(2).toString().replace('.',",") : null} */}
-                  Valor: R$ {doughState.priceDough}
+                  {/* Valor: R$ {sizeState ? sizeState.priceSize.toFixed(2).toString().replace('.',",") : null} */}
+                  Valor: R${" "}
+                  {sizeState && typeof sizeState.priceSize === "number"
+                    ? sizeState.priceSize
+                        .toFixed(2)
+                        .toString()
+                        .replace(".", ",")
+                    : ""}
                 </h5>
               </div>
             </div>
@@ -128,10 +90,10 @@ const Menu = (props) => {
                     textAlign: "center",
                   }}
                 >
-                  {pizzaria.doughs.map((element, index) => {
+                  {pizzeria.sizes.map((element, index) => {
                     return (
                       <>
-                        {doughState.selectedDough === element.type ? (
+                        {sizeState.selectedSize === element.type ? (
                           <>
                             <input
                               style={{ marginLeft: "1.4rem" }}
@@ -139,9 +101,7 @@ const Menu = (props) => {
                               // id='dough'
                               // name="dough"
                               checked
-                              onClick={(e) =>
-                                actions.handleResetCheckboxDough()
-                              }
+                              onClick={(e) => handleUncheckSize()}
                             ></input>
                             <label for="dough" style={{ marginLeft: "0.2rem" }}>
                               {element.type}
@@ -156,9 +116,9 @@ const Menu = (props) => {
                               // name="dough"
                               checked={false}
                               onClick={(e) =>
-                                actions.handleCheckboxChangeDough({
+                                actions.handleCheckboxChangeSize({
                                   name: element.type,
-                                  priceDough: element.price,
+                                  priceSize: element.price,
                                 })
                               }
                             ></input>
@@ -176,20 +136,31 @@ const Menu = (props) => {
 
             <div
               style={{
-                display: "flex",
-                justifyContent: "flex-end",
+                alignContent: "center",
+                justifyContent: "center",
                 alignItems: "center",
                 textAlign: "center",
               }}
             >
-              <Link href="/tamanho">
-                <button>Continuar</button>
-              </Link>
+              <div
+                style={{
+                  display: "flex",
+                  justifyContent: "space-between",
+                  alignItems: "center",
+                  textAlign: "center",
+                }}
+              >
+                <Link href="/massa">
+                  <button>Voltar</button>
+                </Link>
+                <Link href="/recheio">
+                  <button>Continuar</button>
+                </Link>
+              </div>
             </div>
           </div>
         </div>
         <h2 style={{ textAlign: "right" }}>
-          {/* Preço total: R$ {price.toFixed(2).toString().replace(".", ",")} */}
           Preço total: R$ {price.toFixed(2).toString().replace(".", ",")}
         </h2>
       </div>
@@ -197,4 +168,4 @@ const Menu = (props) => {
   );
 };
 
-export default Menu;
+export default Size;

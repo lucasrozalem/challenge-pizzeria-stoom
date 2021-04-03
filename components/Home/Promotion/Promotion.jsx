@@ -11,7 +11,7 @@ const Club = () => {
         <h5><i className="fa fa-check" aria-hidden="true"></i> Você escolhe a massa e o tamanho que desejar.</h5>
         <h5><i className="fa fa-check" aria-hidden="true"></i> Escolhe os entre os melhores ingredientes disponíveis.</h5>
         <h5><i className="fa fa-check" aria-hidden="true"></i> Acumulando 1000 pontos, troque por Coca-Cola 2L.</h5>
-        <p><a className="btn btn-lg btn-outline-dark" style={{ backgroundColor:"#A43D51"}} href="/"><strong style={{fontSize: 25, backgroudColor:"#A43D51"}}>Montar pizza</strong></a></p>
+        <p><a className="btn btn-lg btn-outline-dark" style={{ backgroundColor:"#A43D51"}} href="/massa"><strong style={{fontSize: 25, backgroudColor:"#A43D51"}}>Montar pizza</strong></a></p>
       </div>
     </section>
   );

@@ -6,14 +6,14 @@ import React, { Component } from "react";
 
 import * as commonActions from "../../../actions/commonActions";
 import * as doughActions from "../../../actions/doughActions";
-import Dough from "../../../components/Menu/Dough/Dough";
+import Dough from "../../../components/Menu/Dough/index";
 
 class DoughContainer extends Component {
   componentDidMount() {
     const { router, actions } = this.props;
     const dough = localStorage.getItem("dough");
     const priceDough = localStorage.getItem("priceDough");
-    const name = localStorage.getItem("name");
+    const flavor = localStorage.getItem("flavor");
     const description = localStorage.getItem("description");
     const size = localStorage.getItem("size");
     const priceSize = localStorage.getItem("priceSize");
@@ -27,11 +27,11 @@ class DoughContainer extends Component {
           dough: dough,
           priceDough: priceDough ? Number(priceDough): 0,
           description: description ? description : "",
-          name: name ? name : "",
+          flavor: flavor ? flavor : "",
           size: size ? size : "",
           priceSize: priceSize ? Number(priceSize) : 0,
           total: totalPrice ? Number(totalPrice) : 0,
-          priceFlavor: priceFlavor ? Number(priceFlavor) : "",
+          priceFlavor: priceFlavor ? Number(priceFlavor) : 0,
         });
       }
     }
@@ -42,13 +42,23 @@ class DoughContainer extends Component {
 
   handleNextStep = (price) => {
     const { router, actions, doughState } = this.props;
-    console.log("price 2", price);
     if (doughState.selectedDough) {
       localStorage.setItem("dough", doughState.selectedDough);
       localStorage.setItem("priceDough", doughState.priceDough);
       localStorage.setItem('price', price)
     }
   };
+
+  handleUncheckDough = (price) =>{
+
+    const {  actions } = this.props;
+
+    localStorage.removeItem("dough");
+    localStorage.removeItem("priceDough");
+    localStorage.setItem('total', price)
+
+    actions.handleResetCheckboxDough();
+  }
 
   render() {
     const { actions, doughState } = this.props;
@@ -60,6 +70,7 @@ class DoughContainer extends Component {
             actions={actions}
             doughState={doughState}
             handleNextStep={this.handleNextStep}
+            handleUncheckDough={this.handleUncheckDough}
           />
         }
       </div>

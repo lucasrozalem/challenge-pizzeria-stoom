@@ -26,19 +26,19 @@
       "id": 1,
       "type": "Pequena",
       "description": "Pizza de 6 pedaços",
-      "price": 1.50
+      "price": 4.50
     },
     {
       "id": 2,
       "type": "Média",
       "description": "Pizza de 8 pedaços",
-      "price": 12
+      "price": 15
     },
     {
       "id": 3,
       "type": "Família",
       "description": "Pizza de 12 pedaços",
-      "price": 18
+      "price": 32
     }
   ],
   "flavors": [
@@ -101,86 +101,86 @@
     {
       "id": 1,
       "day": 0,
-      "name": "Frango ",
-      "description": "Mussarela e calabresa.",
-      "size": "Família",
-      "dough": "Tradicional",
+      "name": "PALMITO",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
+      "size": "Média",
+      "dough": "Sem Glútem",
       "priceSize": 10,
       "priceDough": 10,
-      "total": 35.5,
-      "points": 45
+      "total": 32.99,
+      "points": 46
     },
     {
       "id": 2,
       "day": 1,
-      "name": "Três Queijos",
-      "description": "Mussarela e calabresa.",
-      "size": "Família",
-      "dough": "Tradicional",
+      "name": "VEGETARIANA",
+      "description": "Tomate, brocólis, azeitona e cogumelos.",
+      "size": "Fámilia",
+      "dough": "Sem Glútem",
       "priceSize": 10,
       "priceDough": 10,
-      "total": 36.5,
-      "points": 76
+      "total": 37.5,
+      "points": 23
     },
     {
       "id": 3,
       "day": 2,
-      "name": "Portuguesa",
-      "description": "Mussarela e calabresa.",
-      "size": "Família",
-      "dough": "Tradicional",
+      "name": "PORTUGUESA",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
+      "size": "Média",
+      "dough": "Sem Glútem",
       "priceSize": 10,
       "priceDough": 10,
-      "total": 36.5,
-      "points": 13
+      "total": 55.0,
+      "points": 78
     },
     {
       "id": 4,
       "day": 3,
-      "name": "A Moda da Casa",
-      "description": "Mussarela e calabresa.",
-      "size": "Família",
-      "dough": "Tradicional",
+      "name": "PORTUGUESA",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
+      "size": "Média",
+      "dough": "Sem Glútem",
       "priceSize": 10,
       "priceDough": 10,
-      "total": 38.5,
-      "points": 45
+      "total": 59.9,
+      "points": 67
     },
     {
       "id": 5,
       "day": 4,
-      "name": "Milho Verde",
-      "description": "Mussarela e calabresa.",
-      "size": "Família",
-      "dough": "Tradicional",
+      "name": "CALABRESA",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
+      "size": "Média",
+      "dough": "Sem Glútem",
       "priceSize": 10,
       "priceDough": 10,
-      "total": 32.5,
-      "points": 67
+      "total": 49.9,
+      "points": 45
     },
     {
       "id": 6,
       "day": 5,
-      "name": "Calabresa",
-      "description": "Mussarela e calabresa.",
-      "size": "Família",
-      "dough": "Tradicional",
+      "name": "FRANGO COM CATUPIRY",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
+      "size": "Média",
+      "dough": "Sem Glútem",
       "priceSize": 10,
       "priceDough": 10,
-      "total": 34,
-      "points": 23
+      "total": 75.5,
+      "points": 63
     },
     {
       "id": 7,
       "day": 6,
-      "name": "Mussarela",
-      "description": "Mussarela e calabresa.",
-      "size": "Família",
-      "dough": "Tradicional",
+      "name": "PROVOLONE",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
+      "size": "Média",
+      "dough": "Borda Recheada",
       "priceSize": 10,
       "priceDough": 10,
-      "total": 31.5,
-      "points": 99
+      "total": 45,
+      "points": 10
     }
   ]
 }

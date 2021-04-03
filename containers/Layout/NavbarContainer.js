@@ -3,7 +3,7 @@ import { withRouter } from 'next/router';
 import { bindActionCreators, compose } from 'redux';
 import { connect } from 'react-redux';
 import axios from 'axios';
-import { apiURL } from '../../constants/apiURL';
+
 
 import Navbar from '../../components/Layout/Navbar';
 import Loading from '../../components/Loading/Loading';
@@ -24,30 +24,31 @@ class NavbarContainer extends Component {
 
     //('this.props =>', this.props)
 
-    handleLoadingRequestNavbar();
+    //handleLoadingRequestNavbar();
 
-    if (token) {
-      try {
-        axios({
-          method: 'get',
-          url: `${apiURL}/api/customers/verify-customer`,
-          headers: { 'x-auth': localStorage.token, email: localStorage.email }
-        })
-          .then((res) => {
-            localStorage.setItem('token', res.data.token);
-            handleSetValuesNavbar({ name: localStorage.name, email: localStorage.email });
+  //   if (token) {
+  //     try {
+  //       axios({
+  //         method: 'get',
+  //         url: `${apiURL}/api/customers/verify-customer`,
+  //         headers: { 'x-auth': localStorage.token, email: localStorage.email }
+  //       })
+  //         .then((res) => {
+  //           localStorage.setItem('token', res.data.token);
+  //           handleSetValuesNavbar({ name: localStorage.name, email: localStorage.email });
 
-          })
-          .catch(() => {
-            handleErrorRequestNavbar();
-          });
-      } catch {
-        handleErrorRequestNavbar();
-      }
-    } else {
-      resetInitialState();
-    }
-  }
+  //         })
+  //         .catch(() => {
+  //           handleErrorRequestNavbar();
+  //         });
+  //     } catch {
+  //       handleErrorRequestNavbar();
+  //     }
+  //   } else {
+  //     resetInitialState();
+  //   }
+  // 
+}
 
 
 
