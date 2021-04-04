@@ -20,7 +20,7 @@ const initialState = {
   priceSize: 0,
   priceDough: 0,
   priceFlavor: 0,
-  selectedSize:"",
+  selectedSize: "",
   flavor: "",
 };
 
@@ -32,6 +32,7 @@ const doughReducer = (state = initialState, action) => {
     case HANDLE_CHECKBOX_CHANGE:
       return update(state, {
         selectedDough: { $set: action.payload.name },
+        dough: { $set: action.payload.name },
         priceDough: { $set: action.payload.priceDough },
         bugHelper: { $set: !state.bugHelper },
       });
@@ -39,6 +40,7 @@ const doughReducer = (state = initialState, action) => {
     case HANDLE_RESET_CHECKBOX_CHANGE:
       return update(state, {
         selectedDough: { $set: "" },
+        dough: { $set: "" },
         priceDough: { $set: 0 },
         bugHelper: { $set: !state.bugHelper },
       });
@@ -54,11 +56,9 @@ const doughReducer = (state = initialState, action) => {
         size: { $set: action.payload.size },
         dough: { $set: action.payload.dough },
         total: { $set: action.payload.total },
-        flavor: {$set: action.payload.flavor},
+        flavor: { $set: action.payload.flavor },
         bugHelper: { $set: !state.bugHelper },
-        
       });
-
 
     default:
       return state;

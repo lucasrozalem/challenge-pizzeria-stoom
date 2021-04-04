@@ -1,31 +1,22 @@
 import Link from "next/link";
-import moment from "moment";
-import Cookies from "js-cookie";
+import { useEffect } from "react";
 
-import { useState, ReactNode, useEffect } from "react";
+import pizzeria from "../../../pizzeria.json";
 
-import pizzeria from '../../../pizzeria.json';
-
-const Menu = (props) => {
-  const {
-    actions,
-    doughState,
-    handleSetDough,
-    handleNextStep,
-    handleUncheckDough,
-  } = props;
+const Dough = (props) => {
+  const { actions, doughState, handleSetDoughAndPriceDoughLocal, handleUncheckDough } = props;
 
   let price =
-  Number(doughState.priceDough) +
-  Number(doughState.priceSize) +
-  Number(doughState.priceFlavor);
+    Number(doughState.priceDough) +
+    Number(doughState.priceSize) +
+    Number(doughState.priceFlavor);
 
   useEffect(() => {
-    handleNextStep(price);
+    handleSetDoughAndPriceDoughLocal(price);
   }, [doughState.selectedDough]);
 
   return (
-    <section style={{ backgroundColor: "transparent", marginTop:'7.2rem' }}>
+    <section style={{ backgroundColor: "transparent", marginTop: "4.4rem" }}>
       <div className="container" syule={{ float: "left", width: "100%" }}>
         <div
           className="container"
@@ -48,8 +39,6 @@ const Menu = (props) => {
       <br />
 
       <div className="container">
-        
-          
         <div
           className="card shadow-4"
           style={{
@@ -62,11 +51,12 @@ const Menu = (props) => {
           <div className="card-body">
             <div>
               <div style={{ justifyContent: "space-between", display: "flex" }}>
-                <h6 style={{ fontWeight: "bold" }}>
-                  Selecione a borda da sua pizza:
-                </h6>
                 <h5 style={{ fontWeight: "bold" }}>
-               Valor: R$ {doughState && typeof doughState.priceDough === "number"
+                  Escolha a borda da sua pizza:
+                </h5>
+                <h5 style={{ fontWeight: "bold" }}>
+                  Valor: R${" "}
+                  {doughState && typeof doughState.priceDough === "number"
                     ? doughState.priceDough
                         .toFixed(2)
                         .toString()
@@ -82,8 +72,6 @@ const Menu = (props) => {
               <div>
                 <div
                   style={{
-                    // border: "1px solid #C4C4C4",
-                    // borderRadius: "3px",
                     alignContent: "center",
                     justifyContent: "center",
                     alignItems: "center",
@@ -98,12 +86,12 @@ const Menu = (props) => {
                             <input
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
-                              // id='dough'
-                              // name="dough"
                               checked
                               onClick={() => handleUncheckDough(price)}
                             ></input>
-                            <label for="dough" style={{ marginLeft: "0.2rem" }}>
+                            <label
+                              style={{ marginLeft: "0.2rem", fontSize: 16 }}
+                            >
                               {element.type}
                             </label>
                           </>
@@ -112,8 +100,6 @@ const Menu = (props) => {
                             <input
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
-                              // id='dough'
-                              // name="dough"
                               checked={false}
                               onClick={(e) =>
                                 actions.handleCheckboxChangeDough({
@@ -122,7 +108,9 @@ const Menu = (props) => {
                                 })
                               }
                             ></input>
-                            <label for="dough" style={{ marginLeft: "0.2rem" }}>
+                            <label
+                              style={{ marginLeft: "0.2rem", fontSize: 16 }}
+                            >
                               {element.type}
                             </label>
                           </>
@@ -143,13 +131,24 @@ const Menu = (props) => {
               }}
             >
               <Link href="/tamanho">
-                <button>Continuar</button>
+                <button
+                  className="btn"
+                  type="button"
+                  style={{
+                    color: "#f59014",
+                    backgroundColor: "#A43D51",
+                    fontWeight: "bold",
+                    borderRadius: 2,
+                    border: "none",
+                  }}
+                >
+                  CONTINUAR
+                </button>
               </Link>
             </div>
           </div>
         </div>
-        <h2 style={{ textAlign: "right" }}>
-          {/* Preço total: R$ {price.toFixed(2).toString().replace(".", ",")} */}
+        <h2 style={{ textAlign: "right", fontWeight: "bold" }}>
           Preço total: R$ {price.toFixed(2).toString().replace(".", ",")}
         </h2>
       </div>
@@ -157,4 +156,4 @@ const Menu = (props) => {
   );
 };
 
-export default Menu;
+export default Dough;

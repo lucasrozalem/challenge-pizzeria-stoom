@@ -9,32 +9,29 @@ const handle = app.getRequestHandler();
 const forceHTTPS = true;
 
 app.prepare().then(() => {
-
   const server = express();
 
   if (forceHTTPS)
     server.use((req, res, next) => {
-          if (req.headers["x-forwarded-proto"] == "http")
-              res.redirect(`https://${req.headers.host}${req.url}`);
-          else
-              next();
-  });
+      if (req.headers["x-forwarded-proto"] == "http")
+        res.redirect(`https://${req.headers.host}${req.url}`);
+      else next();
+    });
 
   server.use(bodyParser.urlencoded({ extended: true }));
   server.use(bodyParser.json());
 
-  server.get('/', (req, res) => app.render(req, res, '/index'));
-  server.get('/index', (req, res) => app.render(req, res, '/index'));
-  server.get('/massa', (req, res) => app.render(req, res, '/massa'));
-  server.get('/tamanho', (req, res) => app.render(req, res, '/tamanho'));
-  server.get('/recheio', (req, res) => app.render(req, res, '/recheio'));
- 
+  server.get("/", (req, res) => app.render(req, res, "/index"));
+  server.get("/index", (req, res) => app.render(req, res, "/index"));
+  server.get("/massa", (req, res) => app.render(req, res, "/massa"));
+  server.get("/tamanho", (req, res) => app.render(req, res, "/tamanho"));
+  server.get("/recheio", (req, res) => app.render(req, res, "/recheio"));
 
   server.get("*", (req, res) => {
     return handle(req, res);
   });
 
-  server.listen(port, err => {
+  server.listen(port, (err) => {
     if (err) throw err;
     //console.log(`> Custom Express Server ready on http://localhost:${port}`);
   });

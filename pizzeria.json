@@ -51,7 +51,7 @@
     {
       "id": 2,
       "type": "CARIJÓ",
-      "description": "Mussarela, frango, presunto, lombo e cebola",
+      "description": "Mussarela, frango, presunto, lombo e cebola.",
       "price": 31.5
     },
     {
@@ -63,19 +63,19 @@
     {
       "id": 4,
       "type": "ALHO E ÓLEO",
-      "description": "Mussarela, alho e óleo.",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
       "price": 27.5
     },
     {
       "id": 5,
       "type": "AMERICANA",
-      "description": "Mussarela, frango milho e ervilhas.",
+      "description": "Mussarela, bacon, tomate, frango milho e ervilhas.",
       "price": 29
     },
     {
       "id": 6,
       "type": "PEPERONI",
-      "description": "Mussarela, salame e peperoni.",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
       "price": 29.5
     },
     {
@@ -87,13 +87,13 @@
     {
       "id": 8,
       "type": "CALABRESA",
-      "description": "Mussarela e calabresa.",
+      "description": "Mussarela, requeijão, parmesão, calabresa, provolone e cheddar.",
       "price": 29.8
     },
     {
       "id": 9,
       "type": "BRÓCOLIS",
-      "description": "Mussarela, brócolis, bacon e cebola.",
+      "description": "Mussarela, milho, brócolis, bacon e cebola.",
       "price": 28.9
     }
   ],

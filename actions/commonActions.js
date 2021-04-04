@@ -15,122 +15,129 @@ import {
   HANDLE_ERROR_WITH_MESSAGE_REQUEST,
   HANDLE_SET_ADRESS_VIA_CEP,
   HANDLE_RESET_ADRESS_VIA_CEP,
-} from '../constants/actionTypes';
+} from "../constants/actionTypes";
 
 export const resetInitialState = () => ({
-  type: RESET_INITIAL_STATE
+  type: RESET_INITIAL_STATE,
 });
 
 export const handleInputChange = ({ name, value }) => ({
   type: HANDLE_INPUT_CHANGE,
   payload: { name, value },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleSelectChange = ({ name, value }) => ({
   type: HANDLE_SELECT_CHANGE,
   payload: { name, value },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleRadioChange = ({ name, value }) => ({
   type: HANDLE_RADIO_CHANGE,
   payload: { name, value },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleCheckboxChange = ({ checkedValues }) => ({
   type: HANDLE_CHECKBOX_CHANGE,
   payload: { checkedValues },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleSwitchChange = ({ name, value }) => ({
   type: HANDLE_SWITCH_CHANGE,
   payload: {
     name,
-    value
+    value,
   },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleStepChange = ({ value }) => ({
   type: HANDLE_STEP_CHANGE,
   payload: {
-    value
+    value,
   },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleTabChange = ({ value }) => ({
   type: HANDLE_TAB_CHANGE,
   payload: {
-    value
+    value,
   },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const toggleLoading = ({ name, value }) => ({
   type: TOGGLE_LOADING,
   payload: { name, value },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleImageFileChange = ({ image }) => ({
   type: HANDLE_IMAGE_FILE_CHANGE,
   payload: {
-    image
+    image,
   },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleLoadingRequest = () => ({
   type: HANDLE_LOADING_REQUEST,
   payload: {},
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleErrorRequest = () => ({
   type: HANDLE_ERROR_REQUEST,
   payload: {},
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleErrorWithMessageRequest = ({ message }) => ({
   type: HANDLE_ERROR_WITH_MESSAGE_REQUEST,
   payload: { message },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleSuccessRequest = () => ({
   type: HANDLE_SUCCESS_REQUEST,
   payload: {},
   meta: {},
-  error: false
+  error: false,
 });
 
-export const handleSetAdressViaCep = ({ street, complement, district, city, state, ibge }) => ({
+export const handleSetAdressViaCep = ({
+  street,
+  complement,
+  district,
+  city,
+  state,
+  ibge,
+}) => ({
   type: HANDLE_SET_ADRESS_VIA_CEP,
   payload: { street, complement, district, city, state, ibge },
   meta: {},
-  error: false
+  error: false,
 });
 
 export const handleResetAdressViaCep = () => ({
   type: HANDLE_RESET_ADRESS_VIA_CEP,
   payload: {},
   meta: {},
-  error: false
+  error: false,
 });

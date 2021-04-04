@@ -18,7 +18,7 @@ export default class RecommendationPizzaModal extends Component {
       handleVisibleModal,
       handleRecommendationPizza,
       handleFinishPizzaSuccess,
-      handleNewPizza
+      handleNewPizza,
     } = this.props;
 
     return (
@@ -30,7 +30,13 @@ export default class RecommendationPizzaModal extends Component {
         >
           {recommendationState.recommendationTypeModal == "info" && (
             <div>
-              Oba! Pedindo nossa pizza do dia, de {recommendationState.recommendation.name} por {recommendationState.recommendation.total} você ganhará {recommendationState.recommendation.points} pontos
+              Oba! Pedindo nossa pizza do dia, sabor{" "}
+              {recommendationState.recommendation.name} por R${" "}
+              {recommendationState.recommendation.total
+                .toFixed(2)
+                .toString()
+                .replace(".", ",")}{" "}
+              você ganhará {recommendationState.recommendation.points} pontos
             </div>
           )}
           {recommendationState.recommendationTypeModal == "warning" && (
@@ -41,36 +47,38 @@ export default class RecommendationPizzaModal extends Component {
             <div>{recommendationState.messageError}</div>
           )}
           {recommendationState.recommendationTypeModal == "success" && (
-            <div>Parabéns, ao pedir a pizza do dia você ganhou {recommendationState.recommendation.points} pontos!</div>
+            <div>
+              Parabéns, ao pedir a pizza do dia você ganhou{" "}
+              {recommendationState.recommendation.points} pontos!
+            </div>
           )}
           <br />
           {recommendationState.recommendationTypeModal == "info" && (
             <div style={{ marginTop: 15, textAlign: "center" }}>
               <Button
-                type="primary"
+                className="btn"
+                type="button"
                 style={{
-                  color: "white",
+                  color: "#f59014",
                   backgroundColor: "#A43D51",
-                  marginRight: 15,
+                  fontWeight: "bold",
                   borderRadius: 2,
                   border: "none",
-                  height: "30px",
-                  justifyContent: "center",
                 }}
                 onClick={() => handleVisibleModal()}
               >
                 CANCELAR
               </Button>
               <Button
-                type="primary"
+                className="btn"
+                type="button"
                 style={{
-                  color: "white",
+                  color: "#f59014",
                   backgroundColor: "#A43D51",
-                  marginRight: 15,
+                  fontWeight: "bold",
                   borderRadius: 2,
                   border: "none",
-                  height: "30px",
-                  justifyContent: "center",
+                  marginLeft: 20,
                 }}
                 onClick={() => handleRecommendationPizza()}
               >
@@ -81,14 +89,31 @@ export default class RecommendationPizzaModal extends Component {
           {recommendationState.recommendationTypeModal == "success" && (
             <div style={{ marginTop: 15, textAlign: "center" }}>
               <Button
-                style={{ marginLeft: "20px" }}
+                className="btn"
+                type="button"
+                style={{
+                  color: "#f59014",
+                  backgroundColor: "#A43D51",
+                  fontWeight: "bold",
+                  borderRadius: 2,
+                  border: "none",
+                }}
                 onClick={() => handleNewPizza()}
               >
                 NOVO PEDIDO
               </Button>
 
               <Button
-                style={{ marginLeft: "20px" }}
+                className="btn"
+                type="button"
+                style={{
+                  color: "#f59014",
+                  backgroundColor: "#A43D51",
+                  fontWeight: "bold",
+                  borderRadius: 2,
+                  border: "none",
+                  marginLeft: 20,
+                }}
                 onClick={() => handleFinishPizzaSuccess()}
               >
                 CONCLUIR
@@ -98,7 +123,15 @@ export default class RecommendationPizzaModal extends Component {
           {recommendationState.recommendationTypeModal == "danger" && (
             <div style={{ marginTop: 15, textAlign: "center" }}>
               <Button
-                style={{ marginLeft: "20px" }}
+                className="btn"
+                type="button"
+                style={{
+                  color: "#f59014",
+                  backgroundColor: "#A43D51",
+                  fontWeight: "bold",
+                  borderRadius: 2,
+                  border: "none",
+                }}
                 onClick={() => handleVisibleModal()}
               >
                 VOLTAR

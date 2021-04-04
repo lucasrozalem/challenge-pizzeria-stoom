@@ -1,6 +1,5 @@
 import { bindActionCreators, compose } from "redux";
 import { connect } from "react-redux";
-import axios from "axios";
 import { withRouter } from "next/router";
 import React, { Component } from "react";
 
@@ -10,66 +9,62 @@ import Dough from "../../../components/Menu/Dough/index";
 
 class DoughContainer extends Component {
   componentDidMount() {
-    const { router, actions } = this.props;
-    const dough = localStorage.getItem("dough");
-    const priceDough = localStorage.getItem("priceDough");
-    const flavor = localStorage.getItem("flavor");
-    const description = localStorage.getItem("description");
-    const size = localStorage.getItem("size");
-    const priceSize = localStorage.getItem("priceSize");
-    const priceFlavor = localStorage.getItem("priceFlavor");
-    const total = localStorage.getItem("total");
-
-    let totalPrice = Number(total) + Number(priceSize) + Number(priceDough) + Number(priceFlavor);
-    async function setState(){
-     if (localStorage.dough) {
-      await actions.handleSetInitialValue({
-          dough: dough,
-          priceDough: priceDough ? Number(priceDough): 0,
-          description: description ? description : "",
-          flavor: flavor ? flavor : "",
-          size: size ? size : "",
-          priceSize: priceSize ? Number(priceSize) : 0,
-          total: totalPrice ? Number(totalPrice) : 0,
-          priceFlavor: priceFlavor ? Number(priceFlavor) : 0,
-        });
-      }
-    }
-
-    setState();
-    
+    const { actions } = this.props;
+    let dough = localStorage.getItem("dough");
+    let priceDough = localStorage.getItem("priceDough");
+    let flavor = localStorage.getItem("flavor");
+    let description = localStorage.getItem("description");
+    let size = localStorage.getItem("size");
+    let priceSize = localStorage.getItem("priceSize");
+    let priceFlavor = localStorage.getItem("priceFlavor");
+    let total = localStorage.getItem("total");
+   
+    actions.handleSetInitialValue({
+      dough: dough ? dough : "",
+      priceDough: priceDough ? Number(priceDough) : 0,
+      description: description ? description : "",
+      flavor: flavor ? flavor : "",
+      size: size ? size : "",
+      priceSize: priceSize ? Number(priceSize) : 0,
+      total: total ? Number(total) : 0,
+      priceFlavor: priceFlavor ? Number(priceFlavor) : 0,
+    });
   }
 
-  handleNextStep = (price) => {
-    const { router, actions, doughState } = this.props;
-    if (doughState.selectedDough) {
-      localStorage.setItem("dough", doughState.selectedDough);
+  
+  handleSetDoughAndPriceDoughLocal = (price) => {
+    const { doughState } = this.props;
+    localStorage.removeItem("dough");
+    localStorage.removeItem("priceDough");
+    localStorage.removeItem("total");
+    if (doughState.selectedDough != "") {
+      console.log('entrou nesse 1')
+      localStorage.setItem("dough", doughState.dough.toString());
       localStorage.setItem("priceDough", doughState.priceDough);
-      localStorage.setItem('price', price)
+      localStorage.setItem("total", price.toString());
     }
   };
 
-  handleUncheckDough = (price) =>{
-
-    const {  actions } = this.props;
+  handleUncheckDough = (price) => {
+    const { actions } = this.props;
 
     localStorage.removeItem("dough");
     localStorage.removeItem("priceDough");
-    localStorage.setItem('total', price)
+    localStorage.setItem("total", price);
 
     actions.handleResetCheckboxDough();
-  }
+  };
 
   render() {
     const { actions, doughState } = this.props;
-    console.log("doughState", doughState);
+    console.log('masas',doughState)
     return (
       <div>
         {
           <Dough
             actions={actions}
             doughState={doughState}
-            handleNextStep={this.handleNextStep}
+            handleSetDoughAndPriceDoughLocal={this.handleSetDoughAndPriceDoughLocal}
             handleUncheckDough={this.handleUncheckDough}
           />
         }

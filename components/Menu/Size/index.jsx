@@ -1,13 +1,10 @@
 import Link from "next/link";
-import moment from "moment";
-import Cookies from "js-cookie";
-
-import { useState, ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 
 import pizzeria from "../../../pizzeria.json";
 
 const Size = (props) => {
-  const { actions, sizeState, handleNextStep, handleUncheckSize } = props;
+  const { actions, sizeState, handleSetSizeAndPriceSizeLocal, handleUncheckSize } = props;
 
   let price =
     Number(sizeState.priceDough) +
@@ -15,13 +12,11 @@ const Size = (props) => {
     Number(sizeState.priceFlavor);
 
   useEffect(() => {
-    handleNextStep(price);
+    handleSetSizeAndPriceSizeLocal(price);
   }, [sizeState.selectedSize]);
 
-  console.log("type", typeof sizeState.priceSize);
-
   return (
-    <section style={{ backgroundColor: "transparent", marginTop:'7.2rem' }}>
+    <section style={{ backgroundColor: "transparent", marginTop: "4.4rem" }}>
       <div className="container" syule={{ float: "left", width: "100%" }}>
         <div
           className="container"
@@ -60,9 +55,9 @@ const Size = (props) => {
           <div className="card-body">
             <div>
               <div style={{ justifyContent: "space-between", display: "flex" }}>
-                <h6 style={{ fontWeight: "bold" }}>
+                <h5 style={{ fontWeight: "bold" }}>
                   Selecione o tamanho da sua pizza:
-                </h6>
+                </h5>
                 <h5 style={{ fontWeight: "bold" }}>
                   {/* Valor: R$ {sizeState ? sizeState.priceSize.toFixed(2).toString().replace('.',",") : null} */}
                   Valor: R${" "}
@@ -101,9 +96,11 @@ const Size = (props) => {
                               // id='dough'
                               // name="dough"
                               checked
-                              onClick={(e) => handleUncheckSize()}
+                              onClick={(e) => handleUncheckSize(price)}
                             ></input>
-                            <label for="dough" style={{ marginLeft: "0.2rem" }}>
+                            <label
+                              style={{ marginLeft: "0.2rem", fontSize: 16 }}
+                            >
                               {element.type}
                             </label>
                           </>
@@ -122,7 +119,9 @@ const Size = (props) => {
                                 })
                               }
                             ></input>
-                            <label for="dough" style={{ marginLeft: "0.2rem" }}>
+                            <label
+                              style={{ marginLeft: "0.2rem", fontSize: 16 }}
+                            >
                               {element.type}
                             </label>
                           </>
@@ -151,16 +150,40 @@ const Size = (props) => {
                 }}
               >
                 <Link href="/massa">
-                  <button>Voltar</button>
+                  <button
+                    className="btn"
+                    type="button"
+                    style={{
+                      color: "#f59014",
+                      backgroundColor: "#A43D51",
+                      fontWeight: "bold",
+                      borderRadius: 2,
+                      border: "none",
+                    }}
+                  >
+                    MUDAR MASSA
+                  </button>
                 </Link>
                 <Link href="/recheio">
-                  <button>Continuar</button>
+                  <button
+                    className="btn"
+                    type="button"
+                    style={{
+                      color: "#f59014",
+                      backgroundColor: "#A43D51",
+                      fontWeight: "bold",
+                      borderRadius: 2,
+                      border: "none",
+                    }}
+                  >
+                    CONTINUAR
+                  </button>
                 </Link>
               </div>
             </div>
           </div>
         </div>
-        <h2 style={{ textAlign: "right" }}>
+        <h2 style={{ textAlign: "right", fontWeight: "bold" }}>
           Preço total: R$ {price.toFixed(2).toString().replace(".", ",")}
         </h2>
       </div>

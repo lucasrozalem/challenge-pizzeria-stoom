@@ -17,14 +17,14 @@ export const handleResetFlavor = () => ({
 
 export const handleLoadingRequest = () => ({
   type: HANDLE_LOADING_REQUEST,
-  payload: { },
+  payload: {},
   meta: {},
   error: false,
 });
 
 export const handleSuccessRequest = () => ({
   type: HANDLE_SUCCESS_REQUEST,
-  payload: { },
+  payload: {},
   meta: {},
   error: false,
 });
@@ -36,9 +36,9 @@ export const handleChangeFlavor = ({ name, priceFlavor, description }) => ({
   error: false,
 });
 
-export const handleVisibleModal = ( ) => ({
+export const handleVisibleModal = () => ({
   type: HANDLE_VISIBLE_MODAL,
-  payload: { },
+  payload: {},
   meta: {},
   error: false,
 });
@@ -58,7 +58,7 @@ export const handleSetInitialValue = ({
   priceDough,
   total,
   priceFlavor,
-  flavor
+  flavor,
 }) => ({
   type: HANDLE_SET_INITIAL_VALUE,
   payload: {
@@ -69,7 +69,7 @@ export const handleSetInitialValue = ({
     priceDough,
     total,
     priceFlavor,
-    flavor
+    flavor,
   },
   meta: {},
   error: false,

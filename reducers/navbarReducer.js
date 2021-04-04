@@ -1,4 +1,4 @@
-import update from 'immutability-helper';
+import update from "immutability-helper";
 
 import {
   RESET_INITIAL_STATE,
@@ -6,12 +6,12 @@ import {
   HANDLE_ERROR_REQUEST_NAVBAR,
   HANDLE_SUCCESS_REQUEST_NAVBAR,
   HANDLE_SET_VALUES_NAVBAR,
-  HANDLE_NAVBAR_MOBILE
-} from '../constants/actionTypes';
+  HANDLE_NAVBAR_MOBILE,
+} from "../constants/actionTypes";
 
 const initialState = {
-  name: '',
-  email: '',
+  name: "",
+  email: "",
   loginMade: false,
   loadingNavbar: false,
   menuMobileVisible: false,
@@ -19,32 +19,31 @@ const initialState = {
 
 const navbarReducer = (state = initialState, action) => {
   switch (action.type) {
-
     case RESET_INITIAL_STATE:
       return initialState;
 
     case HANDLE_LOADING_REQUEST_NAVBAR:
       return update(state, {
-        loadingNavbar: { $set: true }
+        loadingNavbar: { $set: true },
       });
 
     case HANDLE_ERROR_REQUEST_NAVBAR:
       return update(state, {
         loadingNavbar: { $set: false },
         loginMade: { $set: false },
-        name: { $set: '' },
-        email: { $set: '' }
+        name: { $set: "" },
+        email: { $set: "" },
       });
 
     case HANDLE_NAVBAR_MOBILE:
       return update(state, {
-        menuMobileVisible: { $set: !state.menuMobileVisible }
+        menuMobileVisible: { $set: !state.menuMobileVisible },
       });
 
     case HANDLE_SUCCESS_REQUEST_NAVBAR:
       return update(state, {
         loadingNavbar: { $set: false },
-        loginMade: { $set: true }
+        loginMade: { $set: true },
       });
 
     case HANDLE_SET_VALUES_NAVBAR:
@@ -52,7 +51,7 @@ const navbarReducer = (state = initialState, action) => {
         name: { $set: action.payload.name },
         email: { $set: action.payload.email },
         loginMade: { $set: true },
-        loadingNavbar: { $set: false }
+        loadingNavbar: { $set: false },
       });
 
     default:

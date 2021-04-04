@@ -34,7 +34,7 @@ export const handleSetInitialValue = ({
   priceDough,
   total,
   priceFlavor,
-  flavor
+  flavor,
 }) => ({
   type: HANDLE_SET_INITIAL_VALUE,
   payload: {
@@ -45,7 +45,7 @@ export const handleSetInitialValue = ({
     priceDough,
     total,
     priceFlavor,
-    flavor
+    flavor,
   },
   meta: {},
   error: false,

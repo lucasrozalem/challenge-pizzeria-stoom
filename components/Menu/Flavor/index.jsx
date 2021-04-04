@@ -1,13 +1,10 @@
 import Link from "next/link";
-import moment from "moment";
-import Cookies from "js-cookie";
-
-import { useState, ReactNode, useEffect } from "react";
+import { useEffect } from "react";
 
 import pizzeria from "../../../pizzeria.json";
 
 const Flavor = (props) => {
-  const { actions, flavorState, handleNextStep, handleResetFlavor } = props;
+  const { actions, flavorState, handleSetFlavorAndPriceFlavor, handleResetFlavor } = props;
 
   let price =
     Number(flavorState.priceDough) +
@@ -15,11 +12,11 @@ const Flavor = (props) => {
     Number(flavorState.priceFlavor);
 
   useEffect(() => {
-    handleNextStep(price);
+    handleSetFlavorAndPriceFlavor(price);
   }, [flavorState.selectedFlavor]);
 
   return (
-    <section style={{ backgroundColor: "transparent", marginTop:'7.2rem' }}>
+    <section style={{ backgroundColor: "transparent", marginTop: "4.4rem" }}>
       <div className="container" syule={{ float: "left", width: "100%" }}>
         <div
           className="container"
@@ -62,9 +59,9 @@ const Flavor = (props) => {
           <div className="card-body">
             <div>
               <div style={{ justifyContent: "space-between", display: "flex" }}>
-                <h6 style={{ fontWeight: "bold" }}>
+                <h5 style={{ fontWeight: "bold" }}>
                   Agora escolha o sabor da pizza:
-                </h6>
+                </h5>
                 <h5 style={{ fontWeight: "bold" }}>
                   Valor: R${" "}
                   {flavorState && typeof flavorState.priceFlavor === "number"
@@ -101,11 +98,20 @@ const Flavor = (props) => {
                               display: "grid-row-gap",
                               height: "110px",
                               marginBottom: "0px",
-                              backgroundColor: '#A43D51'
+                              backgroundColor: "#A43D51",
+                              cursor: "pointer",
                             }}
                           >
-                            <a onClick={(e) => handleResetFlavor()}>
-                              <h6 style={{ padding: "5px", color: "#f59014", fontWeight:'bold' }}>{element.type}</h6>
+                            <a onClick={(e) => handleResetFlavor(price)}>
+                              <h6
+                                style={{
+                                  padding: "5px",
+                                  color: "#f59014",
+                                  fontWeight: "bold",
+                                }}
+                              >
+                                {element.type}
+                              </h6>
 
                               <h6
                                 style={{
@@ -119,7 +125,11 @@ const Flavor = (props) => {
                               </h6>
 
                               <h6
-                                style={{ padding: "5px", lineHeight: "15px", color:'white' }}
+                                style={{
+                                  padding: "5px",
+                                  lineHeight: "15px",
+                                  color: "white",
+                                }}
                               >
                                 R${" "}
                                 {element.price
@@ -138,6 +148,7 @@ const Flavor = (props) => {
                               display: "grid-row-gap",
                               height: "110px",
                               marginBottom: "0px",
+                              cursor: "pointer",
                             }}
                           >
                             <a
@@ -149,7 +160,11 @@ const Flavor = (props) => {
                                 })
                               }
                             >
-                              <h6 style={{ padding: "5px" }}>{element.type}</h6>
+                              <h6
+                                style={{ padding: "5px", fontWeight: "bold" }}
+                              >
+                                {element.type}
+                              </h6>
 
                               <h6
                                 style={{
@@ -162,7 +177,11 @@ const Flavor = (props) => {
                               </h6>
 
                               <h6
-                                style={{ padding: "5px", lineHeight: "15px" }}
+                                style={{
+                                  padding: "5px",
+                                  lineHeight: "15px",
+                                  fontWeight: "bold",
+                                }}
                               >
                                 R${" "}
                                 {element.price
@@ -191,16 +210,14 @@ const Flavor = (props) => {
             >
               <Link href="/tamanho">
                 <button
-                  type="primary"
+                  className="btn"
+                  type="button"
                   style={{
                     color: "#f59014",
                     backgroundColor: "#A43D51",
-                    marginRight: 15,
+                    fontWeight: "bold",
                     borderRadius: 2,
                     border: "none",
-                    height: "30px",
-                    justifyContent: "center",
-                    fontWeight: "bold",
                   }}
                 >
                   MUDAR TAMANHO
@@ -208,16 +225,14 @@ const Flavor = (props) => {
               </Link>
 
               <button
-                type="primary"
+                className="btn"
+                type="button"
                 style={{
                   color: "#f59014",
                   backgroundColor: "#A43D51",
-                  justifyContent: "center",
                   fontWeight: "bold",
                   borderRadius: 2,
                   border: "none",
-                  height: "30px",
-                  justifyContent: "center",
                 }}
                 onClick={() => actions.handleVisibleModal()}
               >
@@ -226,8 +241,7 @@ const Flavor = (props) => {
             </div>
           </div>
         </div>
-        <h2 style={{ textAlign: "right" }}>
-          {/* Preço total: R$ {price.toFixed(2).toString().replace(".", ",")} */}
+        <h2 style={{ textAlign: "right", fontWeight: "bold" }}>
           Preço total: R$ {price.toFixed(2).toString().replace(".", ",")}
         </h2>
       </div>

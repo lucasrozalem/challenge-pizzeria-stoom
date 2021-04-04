@@ -39,6 +39,7 @@ const flavorReducer = (state = initialState, action) => {
     case HANDLE_CHANGE_FLAVOR:
       return update(state, {
         selectedFlavor: { $set: action.payload.name },
+        flavor: { $set: action.payload.name },
         priceFlavor: { $set: action.payload.priceFlavor },
         description: { $set: action.payload.description },
         bugHelper: { $set: !state.bugHelper },
@@ -47,6 +48,7 @@ const flavorReducer = (state = initialState, action) => {
     case HANDLE_RESET_FLAVOR:
       return update(state, {
         selectedFlavor: { $set: "" },
+        flavor: { $set: "" },
         priceFlavor: { $set: 0 },
         description: { $set: "" },
         bugHelper: { $set: !state.bugHelper },
@@ -99,7 +101,7 @@ const flavorReducer = (state = initialState, action) => {
         pizzaSuccessRequest: { $set: true },
         pizzaErrorRequest: { $set: false },
         pizzaTypeModal: { $set: "success" },
-        pizzaTitleModal: { $set: "Obrigado por fazar seu pedido!" },
+        pizzaTitleModal: { $set: "Obrigado por fazer seu pedido!" },
       });
     default:
       return state;

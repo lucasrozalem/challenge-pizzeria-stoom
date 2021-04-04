@@ -20,7 +20,6 @@ export const handleSuccessRequest = () => ({
   error: false,
 });
 
-
 export const handleVisibleModal = () => ({
   type: HANDLE_RECOMMENDATION_VISIBLE_MODAL,
   payload: {},
@@ -35,7 +34,7 @@ export const handleErrorModal = ({ message }) => ({
   error: false,
 });
 
-export const handleSetInitialValue = ( { recommendation }  ) => ({
+export const handleSetInitialValue = ({ recommendation }) => ({
   type: HANDLE_SET_INITIAL_VALUE_RECOMMENDATION,
   payload: { recommendation },
   meta: {},

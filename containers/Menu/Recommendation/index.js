@@ -21,7 +21,6 @@ class RecommendationContainer extends Component {
 
     pizzeria.recommendations.map((element, index) => {
       if (element.day == dayOfTheWeek) {
-        console.log("entrou aqui", element);
         recommendation = {
           name: element.name,
           description: element.description,
@@ -45,10 +44,14 @@ class RecommendationContainer extends Component {
     if (recommendationState.recommendation) {
       actions.handleSuccessRequest();
       if (points) {
-        let newPoints = recommendationState.recommendation.points + Number(points);
+        let newPoints =
+          recommendationState.recommendation.points + Number(points);
         localStorage.setItem("points", newPoints);
-      }else{
-        localStorage.setItem("points", recommendationState.recommendation.points);
+      } else {
+        localStorage.setItem(
+          "points",
+          recommendationState.recommendation.points
+        );
       }
     } else {
       actions.handleErrorModal({
@@ -87,7 +90,6 @@ class RecommendationContainer extends Component {
 
   render() {
     const { actions, recommendationState } = this.props;
-    console.log("recommendationState", recommendationState);
 
     return (
       <div>
