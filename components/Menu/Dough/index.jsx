@@ -87,7 +87,7 @@ const Dough = (props) => {
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
                               checked
-                              onClick={() => handleUncheckDough(price)}
+                              onChange={() => handleUncheckDough(price)}
                             ></input>
                             <label
                               style={{ marginLeft: "0.2rem", fontSize: 16 }}
@@ -101,7 +101,7 @@ const Dough = (props) => {
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
                               checked={false}
-                              onClick={(e) =>
+                              onChange={(e) =>
                                 actions.handleCheckboxChangeDough({
                                   name: element.type,
                                   priceDough: element.price,

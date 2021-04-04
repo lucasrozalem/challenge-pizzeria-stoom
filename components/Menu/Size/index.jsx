@@ -4,7 +4,12 @@ import { useEffect } from "react";
 import pizzeria from "../../../pizzeria.json";
 
 const Size = (props) => {
-  const { actions, sizeState, handleSetSizeAndPriceSizeLocal, handleUncheckSize } = props;
+  const {
+    actions,
+    sizeState,
+    handleSetSizeAndPriceSizeLocal,
+    handleUncheckSize,
+  } = props;
 
   let price =
     Number(sizeState.priceDough) +
@@ -59,7 +64,6 @@ const Size = (props) => {
                   Selecione o tamanho da sua pizza:
                 </h5>
                 <h5 style={{ fontWeight: "bold" }}>
-                  {/* Valor: R$ {sizeState ? sizeState.priceSize.toFixed(2).toString().replace('.',",") : null} */}
                   Valor: R${" "}
                   {sizeState && typeof sizeState.priceSize === "number"
                     ? sizeState.priceSize
@@ -77,8 +81,6 @@ const Size = (props) => {
               <div>
                 <div
                   style={{
-                    // border: "1px solid #C4C4C4",
-                    // borderRadius: "3px",
                     alignContent: "center",
                     justifyContent: "center",
                     alignItems: "center",
@@ -93,10 +95,8 @@ const Size = (props) => {
                             <input
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
-                              // id='dough'
-                              // name="dough"
                               checked
-                              onClick={(e) => handleUncheckSize(price)}
+                              onChange={(e) => handleUncheckSize(price)}
                             ></input>
                             <label
                               style={{ marginLeft: "0.2rem", fontSize: 16 }}
@@ -109,10 +109,8 @@ const Size = (props) => {
                             <input
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
-                              // id='dough'
-                              // name="dough"
                               checked={false}
-                              onClick={(e) =>
+                              onChange={(e) =>
                                 actions.handleCheckboxChangeSize({
                                   name: element.type,
                                   priceSize: element.price,

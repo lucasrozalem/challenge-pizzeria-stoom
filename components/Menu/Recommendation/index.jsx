@@ -1,11 +1,3 @@
-import Link from "next/link";
-import moment from "moment";
-import Cookies from "js-cookie";
-
-import { useState, ReactNode, useEffect } from "react";
-
-moment.locale("pt-br");
-
 const Recommendation = (props) => {
   const { actions, recommendationState } = props;
 
