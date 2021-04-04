@@ -2,7 +2,7 @@ import Head from "next/head";
 import Navbar from "../containers/Layout/NavbarContainer";
 
 import SliderHeader from "../components/Home/SliderHeader/Desktop/Slider";
-import Promotion from "../components/Home/Promotion/Promotion";
+import Promotion from "../components/Home/Promotion/index";
 import Footer from "../components/Layout/Footer";
 import GlobalStyle from "../public/style/global.style";
 

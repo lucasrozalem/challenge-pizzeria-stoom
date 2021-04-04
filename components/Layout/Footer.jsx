@@ -6,7 +6,7 @@ const Footer = () => {
       <div className="container">
         <div className="row gap-y">
           <div className="col-6 col-md-4 col-xl-3">
-            <h6 className="mb-4" style={{ color: "#87ceeb", fontWeight: 700 }}>
+            <h6 className="mb-4" style={{ color: "#A43D51", fontWeight: 700 }}>
               Endereço
             </h6>
             <div className="nav flex-column">
@@ -21,7 +21,7 @@ const Footer = () => {
           </div>
 
           <div className="col-6 col-md-4 col-xl-2">
-            <h6 className="mb-4" style={{ color: "#87ceeb", fontWeight: 700 }}>
+            <h6 className="mb-4" style={{ color: "#A43D51", fontWeight: 700 }}>
               Mapa do Site
             </h6>
             <div className="nav flex-column">

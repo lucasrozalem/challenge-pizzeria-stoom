@@ -60,7 +60,7 @@ const Flavor = (props) => {
             <div>
               <div style={{ justifyContent: "space-between", display: "flex" }}>
                 <h5 style={{ fontWeight: "bold" }}>
-                  Agora escolha o sabor da pizza:
+                  Escolha o sabor da pizza:
                 </h5>
                 <h5 style={{ fontWeight: "bold" }}>
                   Valor: R${" "}

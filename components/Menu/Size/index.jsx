@@ -61,7 +61,7 @@ const Size = (props) => {
             <div>
               <div style={{ justifyContent: "space-between", display: "flex" }}>
                 <h5 style={{ fontWeight: "bold" }}>
-                  Selecione o tamanho da sua pizza:
+                  Escolha o tamanho da sua pizza:
                 </h5>
                 <h5 style={{ fontWeight: "bold" }}>
                   Valor: R${" "}
