@@ -1,6 +1,5 @@
 import { bindActionCreators, compose } from "redux";
 import { connect } from "react-redux";
-import axios from "axios";
 import { withRouter } from "next/router";
 import React, { Component } from "react";
 
@@ -19,7 +18,7 @@ class SizeContainer extends Component {
    let priceSize = localStorage.getItem("priceSize");
    let priceFlavor = localStorage.getItem("priceFlavor");
    let total = localStorage.getItem("total");
-   console.log('typeee', typeof(priceSize))
+   
     actions.handleSetInitialValue({
       dough: dough ? dough : "",
       priceDough: priceDough ? Number(priceDough) : 0,
@@ -56,7 +55,7 @@ class SizeContainer extends Component {
 
   render() {
     const { actions, sizeState } = this.props;
-console.log('size',sizeState)
+
     return (
       <div>
         {

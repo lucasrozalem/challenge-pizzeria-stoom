@@ -34,11 +34,12 @@ class DoughContainer extends Component {
   
   handleSetDoughAndPriceDough = (price) => {
     const { doughState } = this.props;
+
     localStorage.removeItem("dough");
     localStorage.removeItem("priceDough");
     localStorage.removeItem("total");
+
     if (doughState.selectedDough != "") {
-      console.log('entrou nesse 1')
       localStorage.setItem("dough", doughState.dough.toString());
       localStorage.setItem("priceDough", doughState.priceDough);
       localStorage.setItem("total", price.toString());
@@ -57,7 +58,7 @@ class DoughContainer extends Component {
 
   render() {
     const { actions, doughState } = this.props;
-    console.log('masas',doughState)
+
     return (
       <div>
         {

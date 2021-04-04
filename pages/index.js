@@ -12,7 +12,6 @@ const Index = (props) => {
       <GlobalStyle />
       <Head>
         <title>Pizza</title>
-
         <link
           rel="shortcut icon"
           type="image/x-icon"

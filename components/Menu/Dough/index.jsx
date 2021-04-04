@@ -76,14 +76,17 @@ const Dough = (props) => {
                     justifyContent: "center",
                     alignItems: "center",
                     textAlign: "center",
+                    display:'flex',
+                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
                   }}
                 >
                   {pizzeria.doughs.map((element, index) => {
                     return (
-                      <>
+                      <div key={index}>
                         {doughState.selectedDough === element.type ? (
                           <>
                             <input
+                            key={index}
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
                               checked
@@ -96,8 +99,9 @@ const Dough = (props) => {
                             </label>
                           </>
                         ) : (
-                          <>
+                          < >
                             <input
+                              key={index}
                               style={{ marginLeft: "1.4rem" }}
                               type="checkbox"
                               checked={false}
@@ -115,7 +119,7 @@ const Dough = (props) => {
                             </label>
                           </>
                         )}
-                      </>
+                      </div>
                     );
                   })}
                 </div>

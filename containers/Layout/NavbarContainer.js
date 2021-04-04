@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 
 import Navbar from "../../components/Layout/Navbar";
 import * as commonActions from "../../actions/commonActions";
-import * as navbarActions from "../../actions/navbarActions";
 
 class NavbarContainer extends Component {
   componentDidMount(){
@@ -33,32 +32,28 @@ class NavbarContainer extends Component {
     const {
       router: { pathname },
       actions,
-      navbarState,
     } = this.props;
 
     return (
       <div>
-        {!navbarState.loadingNavbar && (
+    
           <Navbar
             pathname={pathname}
             actions={actions}
-            navbarState={navbarState}
             handleCloseNavbar={this.handleCloseNavbar}
             localStorage={this.props.localStorage}
           />
-        )}
+        
       </div>
     );
   }
 }
 
-const mapStateToProps = ({ navbarReducer }) => ({ navbarState: navbarReducer });
-
 const mapDispatchToProps = (dispatch) => ({
-  actions: bindActionCreators({ ...commonActions, ...navbarActions }, dispatch),
+  actions: bindActionCreators({ ...commonActions }, dispatch),
 });
 
 export default compose(
   withRouter,
-  connect(mapStateToProps, mapDispatchToProps)
+  connect(mapDispatchToProps)
 )(NavbarContainer);

@@ -111,7 +111,7 @@ class FlavorContainer extends Component {
 
   render() {
     const { actions, flavorState } = this.props;
-    console.log("sabvor", flavorState);
+ 
     return (
       <div>
         {
@@ -123,7 +123,6 @@ class FlavorContainer extends Component {
             handleResetFlavor={this.handleResetFlavor}
           />
         }
-
         {flavorState.isVisiblePizzaModal && (
           <Modal
             handleVisibleModal={actions.handleVisibleModal}

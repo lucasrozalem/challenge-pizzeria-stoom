@@ -85,11 +85,13 @@ const Size = (props) => {
                     justifyContent: "center",
                     alignItems: "center",
                     textAlign: "center",
+                    display:'flex',
+                    gridTemplateColumns: "1fr 1fr 1fr 1fr",
                   }}
                 >
                   {pizzeria.sizes.map((element, index) => {
                     return (
-                      <>
+                      <div key={index}>
                         {sizeState.selectedSize === element.type ? (
                           <>
                             <input
@@ -124,7 +126,7 @@ const Size = (props) => {
                             </label>
                           </>
                         )}
-                      </>
+                      </div>
                     );
                   })}
                 </div>

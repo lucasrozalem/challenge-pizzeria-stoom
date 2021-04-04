@@ -84,11 +84,12 @@ const Flavor = (props) => {
                     gridTemplateColumns: "1fr 1fr 1fr",
                     gridColumnGap: "10px",
                     gridRowGap: "10px",
+                    
                   }}
                 >
                   {pizzeria.flavors.map((element, index) => {
                     return (
-                      <>
+                      <div key={index}>
                         {flavorState.selectedFlavor === element.type ? (
                           <div
                             className="card shadow-4"
@@ -192,7 +193,7 @@ const Flavor = (props) => {
                             </a>
                           </div>
                         )}
-                      </>
+                      </div>
                     );
                   })}
                 </div>
