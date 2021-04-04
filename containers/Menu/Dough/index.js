@@ -32,7 +32,7 @@ class DoughContainer extends Component {
   }
 
   
-  handleSetDoughAndPriceDoughLocal = (price) => {
+  handleSetDoughAndPriceDough = (price) => {
     const { doughState } = this.props;
     localStorage.removeItem("dough");
     localStorage.removeItem("priceDough");
@@ -64,7 +64,7 @@ class DoughContainer extends Component {
           <Dough
             actions={actions}
             doughState={doughState}
-            handleSetDoughAndPriceDoughLocal={this.handleSetDoughAndPriceDoughLocal}
+            handleSetDoughAndPriceDough={this.handleSetDoughAndPriceDough}
             handleUncheckDough={this.handleUncheckDough}
           />
         }

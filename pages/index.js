@@ -2,7 +2,6 @@ import Head from "next/head";
 import Navbar from "../containers/Layout/NavbarContainer";
 
 import SliderHeader from "../components/Home/SliderHeader/Desktop/Slider";
-import KnowMore from "../components/Home/KnowMore/Desktop/KnowMore";
 import Promotion from "../components/Home/Promotion/Promotion";
 import Footer from "../components/Layout/Footer";
 import GlobalStyle from "../public/style/global.style";
@@ -13,7 +12,7 @@ const Index = (props) => {
       <GlobalStyle />
       <Head>
         <title>Pizza</title>
-      
+
         <link
           rel="shortcut icon"
           type="image/x-icon"
@@ -33,14 +32,11 @@ const Index = (props) => {
       <Navbar />
       <main className="main">
         <SliderHeader />
-        {/* <SliderHeaderMobile /> */}
-        {/* <Home /> */}
+
         <Promotion />
-        <KnowMore />
-   
       </main>
       <Footer />
-     
+
       <script src="/assets/js/page.min.js"></script>
     </div>
   );

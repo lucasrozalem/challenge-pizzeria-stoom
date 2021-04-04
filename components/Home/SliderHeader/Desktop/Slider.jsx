@@ -17,7 +17,7 @@ const SliderHeader = () => {
       >
         <div data-src="/static/images/home_slider/home_slide_1.jpg">
           <div style={{ display: "grid", position: "relative", fontSize: 50 }}>
-            <h1 style={{ fontWeight: 900, color: "white" }}>
+            <h1 style={{ fontWeight: 900, color: "white",textShadow:'2px 2px black' }}>
               A melhor Pizza da Região
             </h1>
             <Link href="/massa">
@@ -30,6 +30,7 @@ const SliderHeader = () => {
                   fontWeight: "bold",
                   borderRadius: 2,
                   border: "none",
+                  textShadow:'2px 2px black'
                 }}
               >
                 EU QUERO!
@@ -37,20 +38,21 @@ const SliderHeader = () => {
             </Link>
           </div>
         </div>
-        <div data-src="/static/images/home_slider/home_slide_2.jpg">
+        <div data-src="/static/images/home_slider/home_slide_2.jpg" >
           <div
             style={{
               marginLeft: "-65%",
               marginTop: "-17%",
               position: "relative",
+              
             }}
           >
             <div className="col-lg-10 mb-8 ml-10 text-white">
-              <h3 className="display-2 fw-900" style={{ lineHeight: 1 }}>
+              <h3 className="display-2 fw-900" style={{ lineHeight: 1, textShadow:'2px 2px black' }}>
                 Cuidado e<br />
                 Amor
                 <br />
-                <strong style={{ color: "white", fontWeight: 900 }}>
+                <strong style={{ color: "#E7AA0D", fontWeight: 900, textShadow:'2px 2px black' }}>
                   Com a sua <br />
                   comida!
                 </strong>

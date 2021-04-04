@@ -25,21 +25,8 @@ const Footer = () => {
               Mapa do Site
             </h6>
             <div className="nav flex-column">
-              <Link href="/quem-somos">
-                <a className="nav-link" href="/quem-somos">
-                  Quem Somos
-                </a>
-              </Link>
-              <Link href="/produtos">
-                <a className="nav-link" href="/produtos">
-                  Menu
-                </a>
-              </Link>
-
-              <Link href="/faq">
-                <a className="nav-link" href="/faq">
-                  FAQ
-                </a>
+              <Link href="/massa">
+                <a className="nav-link">Monte sua Pizza</a>
               </Link>
             </div>
           </div>
@@ -58,12 +45,6 @@ const Footer = () => {
               </a>
             </Link>
             <div className="social social-sm social-bg-brand social-cycling mt-6">
-              {/* <Link
-                href="#"
-              >
-                <a href="#"><img src="/static/images/medium.png" alt="logo" width={30} style={{marginTop: -3}}/></a>
-              </Link> */}
-
               <a
                 className="social-instagram"
                 href="https://www.instagram.com/lucas_rozalem/"

@@ -4,7 +4,7 @@ import { useEffect } from "react";
 import pizzeria from "../../../pizzeria.json";
 
 const Dough = (props) => {
-  const { actions, doughState, handleSetDoughAndPriceDoughLocal, handleUncheckDough } = props;
+  const { actions, doughState, handleSetDoughAndPriceDough, handleUncheckDough } = props;
 
   let price =
     Number(doughState.priceDough) +
@@ -12,7 +12,7 @@ const Dough = (props) => {
     Number(doughState.priceFlavor);
 
   useEffect(() => {
-    handleSetDoughAndPriceDoughLocal(price);
+    handleSetDoughAndPriceDough(price);
   }, [doughState.selectedDough]);
 
   return (

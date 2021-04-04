@@ -181,6 +181,18 @@
       "priceDough": 10,
       "total": 45,
       "points": 10
+    },
+    {
+      "id": 8,
+      "day": 7,
+      "name": "CALABRESA",
+      "description": "Mussarela, requeijão, parmesão, provolone e cheddar.",
+      "size": "Média",
+      "dough": "Borda Recheada",
+      "priceSize": 10,
+      "priceDough": 10,
+      "total": 45,
+      "points": 10
     }
   ]
 }

@@ -8,6 +8,16 @@ import * as commonActions from "../../actions/commonActions";
 import * as navbarActions from "../../actions/navbarActions";
 
 class NavbarContainer extends Component {
+  componentDidMount(){
+    const points = localStorage.getItem('points')
+    if(points){
+      if(Number(points)>= 1000){
+        alert('Parabens você atingiu 1000 pontose ganhou uma coca cola 2L');
+        localStorage.removeItem('points')
+      }
+    }
+  }
+
   handleSignOut = () => {
     localStorage.clear();
     this.props.actions.resetInitialState();
